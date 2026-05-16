@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATAGPT AI - PDF Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>DATAGPT AI</h1>
+            </div>
+            <div class="upload-section">
+                <label for="pdf-upload" class="upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload PDF
+                </label>
+                <input type="file" id="pdf-upload" accept=".pdf" hidden>
+                <div id="file-info" class="file-info">No file selected</div>
+            </div>
+            <div class="status-container">
+                <div id="loading-bar" class="loading-bar">
+                    <div class="bar-progress"></div>
+                </div>
+                <div id="status-text" class="status-text">Ready</div>
+            </div>
+            <div class="auth-section">
+                <button id="login-btn" class="sidebar-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                <button id="logout-btn" class="sidebar-btn" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <div id="user-display" class="user-display"></div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <h2>Chat with your PDF</h2>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </header>
+            
+            <div id="chat-messages" class="chat-messages">
+                <div class="message ai-message">
+                    <div class="avatar"><i class="fas fa-robot"></i></div>
+                    <div class="content">Hello! Please upload a PDF to start chatting.</div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Ask a question about the PDF..." autocomplete="off">
+                    <button type="submit" id="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
