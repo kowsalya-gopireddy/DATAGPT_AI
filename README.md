@@ -59,21 +59,6 @@ DATAGPT-AI/
 ├── requirements.txt
 │
 └── README.md
-*Installation
-Clone Repository
-git clone https://github.com/your-username/DATAGPT-AI.git
-cd DATAGPT-AI
-Create Virtual Environment
-python -m venv venv
-Activate Environment
-Windows
-venv\Scripts\activate
-Linux / macOS
-source venv/bin/activate
-Install Dependencies
-pip install -r requirements.txt
-* Environment Variables
-
 Create a .env file in the root directory.
 
 GROQ_API_KEY=your_groq_api_key
